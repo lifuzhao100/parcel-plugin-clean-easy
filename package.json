@@ -1,0 +1,27 @@
+{
+  "name": "parcel-plugin-clean-easy",
+  "version": "1.0.0",
+  "description": "A parcel plugin to remove/clean your build folder(s) before building",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lifuzhao100/parcel-plugin-clean-easy.git"
+  },
+  "keywords": [
+    "parcel",
+    "parcel-plugin",
+    "clean-webpack-plugin"
+  ],
+  "author": "lifuzhao100",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lifuzhao100/parcel-plugin-clean-easy/issues"
+  },
+  "homepage": "https://github.com/lifuzhao100/parcel-plugin-clean-easy#readme",
+  "dependencies": {
+    "clean-webpack-plugin": "^0.1.19"
+  }
+}
