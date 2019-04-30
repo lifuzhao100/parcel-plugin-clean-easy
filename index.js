@@ -83,7 +83,7 @@ const clean = function() {
     }
 
     // disallow deletion any directories outside of root path.
-    if (rimrafPath.indexOf(projectRootDir) < 0) {
+    if (rimrafPath.indexOf(projectRootDir) < 0 && !_this.options.unsafe) {
       console.warn(
         'parcel-plugin-clean-easy: ' + rimrafPath + ' is outside of the project root. Skipping...');
       results.push({ path: rimrafPath, output: 'must be inside the project root' });
@@ -172,8 +172,11 @@ module.exports = bundler => {
   }catch(e){}
 
   const paths = pkgFile["parcelCleanPaths"] || [];
+  const unsafe = pkgFile["parcelCleanUnsafePaths"] || false;
+
   let cleaner = new CleanPlugin(paths, {
-    root: root
+    root: root,
+    unsafe: unsafe
   });
   clean.call(cleaner);
 }

@@ -25,3 +25,5 @@ An [array] of string paths to clean
   'web/*.js'      // removes all JavaScript files in 'web' folder
 ]
 ```
+### parcelCleanUnsafePaths (Optional)
+Add this option to your package.json to allow the plugin cleaning outside folders.
