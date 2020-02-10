@@ -171,10 +171,21 @@ module.exports = bundler => {
     pkgFile = require(path.resolve(root, 'package.json'))
   }catch(e){}
 
+  const ppce = process.env.NODE_PPCE_ENV || "";
   const paths = pkgFile["parcelCleanPaths"] || [];
   const unsafe = pkgFile["parcelCleanUnsafePaths"] || false;
 
-  let cleaner = new CleanPlugin(paths, {
+  let activePaths = [];
+
+  if (paths[ppce] || paths[ppce] == "") {
+    activePaths = paths[ppce];
+  }
+
+  else if (Array.isArray (paths) || typeof paths != 'object') {
+    activePaths = paths;
+  }
+
+  let cleaner = new CleanPlugin(activePaths, {
     root: root,
     unsafe: unsafe
   });
